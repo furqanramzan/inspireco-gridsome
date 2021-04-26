@@ -1,0 +1,24 @@
+{
+  "name": "inspireco",
+  "private": true,
+  "scripts": {
+    "dev": "gridsome develop",
+    "explore": "gridsome explore",
+    "build": "gridsome build"
+  },
+  "dependencies": {
+    "@directus/sdk": "^9.0.0-rc.57",
+    "@mdi/font": "^5.9.55",
+    "buefy": "^0.9.6",
+    "gridsome": "^0.7.0",
+    "gridsome-source-directus": "^0.1.2",
+    "material-icons": "^0.5.4",
+    "vuesax3": "npm:vuesax@^3.12.2",
+    "vuesax4": "npm:vuesax@^4.0.1-alpha.25"
+  },
+  "devDependencies": {
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.1",
+    "style-resources-loader": "^1.4.1"
+  }
+}

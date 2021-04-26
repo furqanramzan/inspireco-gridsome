@@ -1,0 +1,17 @@
+$primary: #1a5cff;
+$secondary: #5b3cc4;
+$success: #46c93a;
+$danger: #ff4757;
+$warn: #ffba00;
+$dark: #1e1e1e;
+$background: #e9eef3;
+
+%full-float {
+    width: 100%;
+    float: left;
+}
+
+%full-flex {
+    width: 100%;
+    display: flex;
+}
