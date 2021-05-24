@@ -16,17 +16,7 @@ import '~/assets/scss/main.scss'
 export default function (Vue, { router, head, isClient }) {
   // Vue.use(vsUpload);
   Vue.use(Carousel);
-  Vue.use(Vuesax4, {
-    colors: {
-      primary: "#1a5cff",
-      secondary: "#5b3cc4",
-      success: "#46c93a",
-      danger: "#ff4757",
-      warn: "#ffba00",
-      dark: "#1e1e1e",
-      light: "#fff"
-    }
-  })
+  Vue.use(Vuesax4);
   // Set default layout as a global component
-  Vue.component('Layout', DefaultLayout)
+  Vue.component('Layout', DefaultLayout);
 }

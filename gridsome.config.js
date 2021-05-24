@@ -41,6 +41,18 @@ module.exports = {
         password: 'admin@example.com',
         collections: [
           {
+            name: 'main_sliders',
+            status: 'published',
+            fields: '*.*',
+            downloadImages: true
+          },
+          {
+            name: 'sub_sliders',
+            status: 'published',
+            fields: '*.*',
+            downloadImages: true
+          },
+          {
             name: 'parent_categories',
             status: 'published',
             fields: '*.*',

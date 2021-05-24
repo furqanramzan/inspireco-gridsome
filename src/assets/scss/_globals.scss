@@ -1,10 +1,24 @@
-$primary: #1a5cff;
-$secondary: #5b3cc4;
-$success: #46c93a;
-$danger: #ff4757;
-$warn: #ffba00;
-$dark: #1e1e1e;
+$primary: rgb(26, 92, 255);
+$secondary: rgb(91, 60, 196);
+$success: rgb(70, 201, 58);
+$danger: rgb(255, 71, 87);
+$warn: rgb(255, 186, 0);
+$dark: rgb(30, 30, 30);
+$light: rgb(255, 255, 255);
 $background: #e9eef3;
+
+:root {
+    --vs-primary: 26, 92, 255;
+    --vs-secondary: 91, 60, 196;
+    --vs-success: 70, 201, 58;
+    --vs-danger: 255, 71, 87;
+    --vs-warn: 255, 186, 0;
+    --vs-dark: 30, 30, 30;
+    --vs-light: 255, 255, 255;
+}
+
+$line-height: 1.5;
+$top-margin: 75px;
 
 %full-float {
     width: 100%;

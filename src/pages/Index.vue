@@ -1,43 +1,68 @@
 <template>
   <Layout>
-    <b-carousel class="main-carousel" indicator-style="is-boxes" :pause-info="false" :arrow-hover="false">
-      <b-carousel-item v-for="(item, i) in 6" :key="i">
-        <span class="image">
-          <img :src="getImgUrl(i)" />
-        </span>
-      </b-carousel-item>
-    </b-carousel>
+    <div class="full-float p-r-10 p-l-10">
+      <div class="columns">
+        <div class="column is-3">
+          <category-list :categories="$page.categories.edges" />
+        </div>
+        <div class="column is-9">
+          <main-carousel />
+          <div class="full-float m-t-30"></div>
+          <sub-carousel />
+          <div class="full-float m-t-30"></div>
+          <product-list :products="$page.products.edges" />
+        </div>
+      </div>
+    </div>
   </Layout>
 </template>
 
 <script>
+import MainCarousel from "@/components/MainCarousel.vue";
+import SubCarousel from "@/components/SubCarousel.vue";
+import ProductList from "@/components/ProductList.vue";
+import CategoryList from "@/components/CategoryList.vue";
+
 export default {
+  components: { MainCarousel, SubCarousel, ProductList, CategoryList },
+
   metaInfo: {
     title: "Hello, world!",
-  },
-
-  data() {
-    return {
-      carousels: [
-        { text: "Slide 1", color: "primary" },
-        { text: "Slide 2", color: "info" },
-        { text: "Slide 3", color: "success" },
-        { text: "Slide 4", color: "warning" },
-        { text: "Slide 5", color: "danger" },
-      ],
-    };
-  },
-
-  methods: {
-    getImgUrl(value) {
-      return `https://picsum.photos/id/43${value}/1230/500`;
-    },
   },
 };
 </script>
 
-<style>
+<style lang="scss">
 .home-links a {
   margin-right: 1rem;
 }
 </style>
+
+<page-query>
+query {
+  products: allProducts {
+    edges {
+      node {
+        id
+        name,
+        price,
+        feature_image {
+          gridsome_image
+        }
+      }
+    }
+  }
+
+  categories: allChildCategories {
+    edges {
+      node {
+        id
+        name,
+        image {
+          gridsome_image
+        }
+      }
+    }
+  }
+}
+</page-query>
