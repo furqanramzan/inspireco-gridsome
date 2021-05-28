@@ -43,6 +43,7 @@ body {
     font-weight: 300;
     background-color: $background;
     min-height: 100vh;
+    scroll-behavior: smooth;
     @extend %full-float;
 }
 

@@ -3,7 +3,6 @@
     @click="$emit('updateSelected')"
     class="category"
     :class="{ active: active }"
-    type="3"
   >
     <template #img>
       <g-image :src="category.image.gridsome_image" />
@@ -32,6 +31,9 @@ export default {
 
 <style lang="scss">
 .category {
+  img {
+    height: 220px;
+  }
   .title {
     color: $light;
     font-weight: 900;

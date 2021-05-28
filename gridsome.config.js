@@ -53,11 +53,6 @@ module.exports = {
             downloadImages: true
           },
           {
-            name: 'parent_categories',
-            status: 'published',
-            fields: '*.*',
-          },
-          {
             name: 'child_categories',
             status: 'published',
             fields: '*.*',

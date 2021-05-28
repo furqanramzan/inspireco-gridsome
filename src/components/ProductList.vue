@@ -1,6 +1,6 @@
 <template>
-  <div class="columns">
-    <div v-for="edge in products" :key="edge.id" class="column is-3 p-t-0">
+  <div class="columns is-multiline">
+    <div v-for="edge in products" :key="edge.id" class="column is-3">
       <product-item :product="edge.node" />
     </div>
   </div>

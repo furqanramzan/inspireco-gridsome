@@ -1,20 +1,15 @@
 <template>
   <div class="categories">
-    <div class="inner-scroll">
-      <div class="columns is-multiline">
-        <div
-          v-for="(edge, index) in categories"
-          :key="edge.id"
-          class="column is-6"
-        >
-          <category-item
-            :category="edge.node"
-            @updateSelected="() => updateSelected(index)"
-            :active="selected === index"
-          />
-        </div>
+    <div class="columns is-multiline">
+      <div v-for="{ node } in categories" :key="node.id" class="column is-6">
+        <category-item
+          :category="node"
+          @updateSelected="() => updateSelected(node.id)"
+          :active="value === node.id"
+        />
       </div>
     </div>
+    <div class="full-float m-t-10"></div>
   </div>
 </template>
 
@@ -27,19 +22,17 @@ export default {
       required: true,
       type: Array,
     },
+    value: {
+      required: true,
+      type: String,
+    },
   },
 
   components: { CategoryItem },
 
-  data() {
-    return {
-      selected: 0,
-    };
-  },
-
   methods: {
-    updateSelected(index) {
-      this.selected = index;
+    updateSelected(id) {
+      this.$emit("input", id);
     },
   },
 };
@@ -49,13 +42,13 @@ export default {
 .categories {
   width: inherit;
   position: fixed;
-  padding: 10px 10px 30px 10px;
-  .inner-scroll {
-    height: 100vh;
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  top: $top-margin;
+  bottom: 0;
+  padding: 0px 10px 30px 10px;
+  overflow-y: scroll;
+  height: auto;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 </style>

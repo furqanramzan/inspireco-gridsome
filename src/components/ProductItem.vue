@@ -8,8 +8,8 @@
     </template>
     <template #text>
       <div class="prices">
-        <span class="price">${{ product.price }}</span>
-        <span class="discount">{{ product.price }}%</span>
+        <span class="price">{{ product.price | price }}</span>
+        <span v-if="product.old_price" class="discount">{{ product.old_price | price }}</span>
       </div>
     </template>
     <template #interactions>
@@ -29,6 +29,22 @@ export default {
     product: {
       required: true,
       type: Object,
+    },
+  },
+
+  computed: {
+    discount() {
+      let discount = 0;
+      // if (
+      //   this.product.old_price &&
+      //   this.product.old_price > this.product.price
+      // ) {
+      //   discount = this.product.old_price - this.product.price;
+      //   discount = discount / this.product.price;
+      //   discount = discount * 100;
+      // }
+      // console.log(this.discount);
+      return discount;
     },
   },
 };
@@ -69,6 +85,7 @@ export default {
         padding-right: 10px;
         display: inline-block;
         border-radius: 12px;
+        text-decoration: line-through;
       }
     }
   }
