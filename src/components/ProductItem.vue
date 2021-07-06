@@ -1,29 +1,39 @@
 <template>
-  <vs-card class="product">
-    <template #title>
-      <h3>{{ product.name }}</h3>
-    </template>
-    <template #img>
-      <g-image :src="product.feature_image.gridsome_image" />
-    </template>
-    <template #text>
-      <div class="prices">
-        <span class="price">{{ product.price | price }}</span>
-        <span v-if="product.old_price" class="discount">{{ product.old_price | price }}</span>
-      </div>
-    </template>
-    <template #interactions>
-      <vs-button danger icon>
-        <i class="mdi mdi-heart"></i>
-      </vs-button>
-      <vs-button primary icon>
-        <i class="mdi mdi-cart"></i>
-      </vs-button>
-    </template>
-  </vs-card>
+  <div class="column is-3">
+    <vs-card @click="active = !active" class="product">
+      <template #title>
+        <h3>{{ product.name }}</h3>
+      </template>
+      <template #img>
+        <g-image :src="product.feature_image.gridsome_image" />
+      </template>
+      <template #text>
+        <div class="prices">
+          <span class="price">{{ product.price | price }}</span>
+          <span v-if="product.old_price" class="discount">{{
+            product.old_price | price
+          }}</span>
+        </div>
+      </template>
+      <template #interactions>
+        <vs-button danger icon>
+          <i class="mdi mdi-heart"></i>
+        </vs-button>
+        <vs-button primary icon>
+          <i class="mdi mdi-cart"></i>
+        </vs-button>
+      </template>
+    </vs-card>
+
+    <vs-dialog blur auto-width not-padding v-model="active">
+      <product-detail :product="product" />
+    </vs-dialog>
+  </div>
 </template>
 
 <script>
+import ProductDetail from "@/components/ProductDetail.vue";
+
 export default {
   props: {
     product: {
@@ -31,6 +41,12 @@ export default {
       type: Object,
     },
   },
+
+  components: { ProductDetail },
+
+  data: () => ({
+    active: false,
+  }),
 
   computed: {
     discount() {

@@ -1,8 +1,10 @@
 <template>
   <div class="columns is-multiline">
-    <div v-for="edge in products" :key="edge.id" class="column is-3">
-      <product-item :product="edge.node" />
-    </div>
+    <product-item
+      v-for="edge in products"
+      :key="edge.id"
+      :product="edge.node"
+    />
   </div>
 </template>
 
